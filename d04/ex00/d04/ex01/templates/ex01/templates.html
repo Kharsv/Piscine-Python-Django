@@ -1,0 +1,46 @@
+{% extends "ex01/base.html" %}
+{% load static %}
+{% block title %}
+    Ex01 : Template.
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">
+{% endblock %}
+​
+{% block content %}
+    <h2>Template</h2>
+    <p>A template is a text file. It can generate any text-based format (HTML, XML, CSV, etc.).
+
+A template contains variables, which get replaced with values when the template is evaluated, and tags, which control the logic of the template.
+
+Below is a minimal template that illustrates a few basics. Each element will be explained later in this document.</p>
+<br>
+    <p><b>for</b>
+Loop over each item in an array. For example, to display a list of athletes provided in athlete_list:
+<pre>
+for athlete in athlete_list
+        athlete.name
+ endfor
+</pre>
+</p>
+    <br>
+    <p>
+        <b>if, elif, and else</b>
+Evaluates a variable, and if that variable is “true” the contents of the block are displayed:
+<pre>
+if athlete_list
+    Number of athletes: athlete_list|length
+elif athlete_in_locker_room_list
+    Athletes should be out of the locker room soon!
+else
+    No athletes.
+endif
+</pre>
+    </p>
+    <br>
+    <p><b>block and extends</b>
+Set up template inheritance (see below), a powerful way of cutting down on “boilerplate” in templates.
+Again, the above is only a selection of the whole list; see the built-in tag reference for the complete list.
+
+You can also create your own custom template tags; see Custom template tags and filters.</p>
+{% endblock %}

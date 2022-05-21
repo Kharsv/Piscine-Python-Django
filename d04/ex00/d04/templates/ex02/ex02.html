@@ -1,0 +1,18 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form</title>
+    </head>
+    <body>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit" value="Submit" />
+        </form>
+    {% for x in cont %}
+        {{ x }}<br>
+    {% endfor %}
+    </body>
+</html>
