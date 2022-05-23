@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Remove</title>
+</head>
+<body>
+{% if titles %}
+    <form method=POST action="/ex04/remove/">
+    <select name="name">
+        {% for elem in titles %}
+                <option value="{{ elem.0 }}" name="name">{{ elem.0 }}</option>
+        {% endfor %}
+    </select>
+    <button type=submit> Delete </button>
+    </form>
+    {% else %}
+    <h3>No data available</h3>
+{% endif %}
+</body>
+</html>

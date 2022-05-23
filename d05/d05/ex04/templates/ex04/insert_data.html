@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insert data</title>
+</head>
+<body>
+{% if result %}
+    {% for x in result %}
+        <p>{{ x }}</p>
+    {% endfor %}
+{% else %}
+    <h3>{{ result }}</h3>
+{% endif %}
+</body>
+</html>

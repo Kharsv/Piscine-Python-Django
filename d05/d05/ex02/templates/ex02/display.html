@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create table</title>
+</head>
+<body>
+{% if table %}
+    <table style="border:1px solid black">
+        <tr>
+            <th>Episode nb</th>
+            <th>Title</th>
+            <th>Opening crawl</th>
+            <th>Director</th>
+            <th>Producer</th>
+            <th>Release date</th>
+        </tr>
+        {% for n,tit,c,dir,prod,dat in table %}
+            <tr>
+                <td>{{ n }}</td>
+                <td>{{ tit }}</td>
+                <td>{{ c }}</td>
+                <td>{{ dir }}</td>
+                <td>{{ prod }}</td>
+                <td>{{ dat }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% else %}
+    <p>No data available</p>
+{% endif %}
+</body>
+</html>
