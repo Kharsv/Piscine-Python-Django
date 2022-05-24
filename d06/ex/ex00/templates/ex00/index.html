@@ -1,0 +1,40 @@
+{% extends "ex00/base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+Hello {{ name }}!
+{%  if not logout %}
+    {% include "ex00/nav.html" %}
+{% endif %}
+    {% if logout %}
+    <a href="../logout/"> Logout </a>|
+        <a href="../">Login</a> |
+    <a href="../">Registration</a>
+<form method="post" class="form">
+    {% csrf_token %}
+    {% bootstrap_form fom %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+            {% bootstrap_icon "check" %} Submit
+        </button>
+    {% endbuttons %}
+</form>
+{% for x in tips %}
+    <p>{{ x.contentue }}</p>
+    <p>Created by: {{ x.auteur }}</p>
+    <p>{{ x.date }}</p>
+        <a href="delete/?id={{ x.id }}" class="btn btn-danger" role="button">
+            {% bootstrap_icon "close" %} Delete
+        </a>
+                <a  href='upgrate/?id={{ x.id }}' class="btn btn-warning" role="button">
+            {% bootstrap_icon "refresh" %} Update
+        </a>
+                <a href="like/?id={{ x.id }}" class="btn btn-success" role="button">
+            {% bootstrap_icon "star" %} Like {{ x.upvote }}
+        </a>
+                <a href="dislike/?id={{ x.id }}" class="btn btn-info" role="button">
+            {% bootstrap_icon "star-border" %} Dislike {{ x.down_vote }}
+        </a>
+    <hr>
+{% endfor %}
+    {% endif %}
+{%  endblock %}
