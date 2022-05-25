@@ -1,0 +1,18 @@
+
+{% extends "ex/base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+    {% include "ex/nav.html" %}
+<form method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+    <input type="submit" value="Submit">
+{% endbuttons %}
+</form>
+    {% if messages %}
+        {% for message in messages %}
+            <h4>{{ message }}</h4>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
